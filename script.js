@@ -24,7 +24,7 @@ numbers.forEach((number) => {
       display.innerText = operand1;
     }
     if (curOperator) {
-      display.innerText += curOperator + operand2;
+      display.innerText = operand2;
     }
   });
 });
@@ -35,9 +35,6 @@ document.querySelectorAll(".operator").forEach((operator) => {
       operate();
     }
     curOperator = operator.getAttribute("data-value");
-    if (operand1) {
-      display.innerText += curOperator;
-    }
     isNewCal = false;
   });
 });
