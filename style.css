@@ -38,7 +38,8 @@ body {
   border-radius: 10px;
 }
 .clear {
-  padding: 50px;
+  padding-right: 220px;
+  padding-bottom: 30px;
   margin: 2px;
   font-size: 30px;
   background-color: rgb(94, 51, 34);
@@ -51,6 +52,14 @@ body {
   margin: 2px;
   font-size: 30px;
   background-color: aliceblue;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.point {
+  padding: 50px;
+  margin: 2px;
+  font-size: 30px;
+  background-color: rgb(137, 139, 141);
   cursor: pointer;
   border-radius: 10px;
 }

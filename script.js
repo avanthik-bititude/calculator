@@ -29,6 +29,18 @@ numbers.forEach((number) => {
   });
 });
 
+document.querySelectorAll(".point").forEach((point) => {
+  point.addEventListener("click", () => {
+    point.getAttribute("data-value");
+
+    if (!curOperator) {
+      operand1 += ".";
+    } else {
+      operand2 += ".";
+    }
+  });
+});
+
 document.querySelectorAll(".operator").forEach((operator) => {
   operator.addEventListener("click", () => {
     if (operand1 && curOperator && operand2) {
