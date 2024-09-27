@@ -3,14 +3,16 @@ let operand2 = "";
 let curOperator = null;
 let result = null;
 let isNewCal = false;
+
 let display = document.getElementById("result-number");
-console.log("display", display);
 
 let numbers = document.querySelectorAll(".number");
 numbers.forEach((number) => {
   number.addEventListener("click", () => {
     if (isNewCal) {
       operand1 = "";
+      operand2 = "";
+      curOperator = null;
       isNewCal = false;
     }
     if (!curOperator) {
@@ -19,10 +21,10 @@ numbers.forEach((number) => {
       operand2 += number.getAttribute("data-value");
     }
     if (operand1) {
-      display.innerText = operand1.toString();
+      display.innerText = operand1;
     }
     if (curOperator) {
-      display.innerText += curOperator + operand2.toString();
+      display.innerText += curOperator + operand2;
     }
   });
 });
@@ -33,6 +35,9 @@ document.querySelectorAll(".operator").forEach((operator) => {
       operate();
     }
     curOperator = operator.getAttribute("data-value");
+    if (operand1) {
+      display.innerText += curOperator;
+    }
     isNewCal = false;
   });
 });
@@ -63,7 +68,6 @@ function operate() {
 
   let num1 = parseFloat(operand1);
   let num2 = parseFloat(operand2);
-  console.log(num1, num2);
 
   switch (curOperator) {
     case "+":
@@ -78,15 +82,17 @@ function operate() {
     case "/":
       if (num2 === 0) {
         display.innerText = "cant / by 0";
-        return
+        return;
       } else {
         result = num1 / num2;
       }
+      break;
     default:
       display.innerHTML = "somthing error";
+      return;
   }
   result = Math.round(result * 100) / 100;
-  display.innerHTML = result;
+  display.innerText = result;
   operand1 = result.toString();
   operand2 = "";
   curOperator = null;
