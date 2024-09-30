@@ -34,9 +34,13 @@ document.querySelectorAll(".point").forEach((point) => {
     point.getAttribute("data-value");
 
     if (!curOperator) {
-      operand1 += ".";
+      if (!operand1.includes(".")) {
+        operand1 += ".";
+      }
     } else {
-      operand2 += ".";
+      if (!operand2.includes(".")) {
+        operand2 += ".";
+      }
     }
   });
 });
